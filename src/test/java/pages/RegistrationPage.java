@@ -23,6 +23,10 @@ public class RegistrationPage {
     @FindBy(how = How.XPATH, using = "//*[text()='Зарегистрироваться']")
     public SelenideElement registrationButton;
 
+    //локатор ошибкт Некорректный пароль
+    @FindBy(how = How.XPATH, using = "//*[text()='Некорректный пароль']")
+    public SelenideElement incorrectPasswordErrorMessage;
+
     //метод заполнения поля ввода Имя
     public void enterName(String name) {
         nameInputField.sendKeys(name);
