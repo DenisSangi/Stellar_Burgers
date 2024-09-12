@@ -1,13 +1,19 @@
 package com.stellarburgers.stellar_burgers.registration;
 
 import io.qameta.allure.Description;
-import net.bytebuddy.utility.RandomString;
-import org.junit.jupiter.api.DisplayName;
+import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.*;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import pages.BaseData;
+import pages.User;
 
+import java.time.Duration;
+
+import static com.codeborne.selenide.Condition.visible;
+
+@Slf4j
 public class RegistrationTest extends BaseData {
 
     @AfterClass
@@ -15,37 +21,27 @@ public class RegistrationTest extends BaseData {
         closeDriver();
     }
 
-    @Test
-    public void redirectToLoginPageTest() {
-        firstPage.clickEnterAccountButton();
-        Assert.assertTrue(loginPage.enterButton.isDisplayed());
-    }
-
-    @Test
-    @DisplayName("Registration test one")
+    @Test(priority = 1)
+    @DisplayName("Registration test 1")
     @Description ("Test of Registration positive")
     public void registrationTest() {
+        User user = User.getRandomUser();
         firstPage.clickEnterAccountButton();
         loginPage.clickRegistrationLink();
-        registrationPage.enterName(RandomString.make(7));
-        registrationPage.enterEmail(RandomString.make(5) + "@gmail.com");
-        registrationPage.enterPassword(RandomString.make(8));
-        registrationPage.clickRegistrationButton();
-        Assert.assertTrue(loginPage.enterButton.isDisplayed());
+        registrationPage.register(user.getName(), user.getEmail(), user.getPassword());
+        Assert.assertTrue(loginPage.enterButton.shouldBe(visible, Duration.ofSeconds(2)).isDisplayed());
     }
 
-    @Test
-    @DisplayName("Registration test two")
+    @Test(priority = 2)
+    @DisplayName("Registration test 2")
     @Description("Test of Registration with to short Password")
     public void incorrectPasswordRegistrationTest() {
+        User user = User.geShortPasswordUser();
+        loginPage.clickStellarBurgerLogo();
         firstPage.clickEnterAccountButton();
         loginPage.clickRegistrationLink();
-        registrationPage.enterName(RandomString.make(7));
-        registrationPage.enterEmail(RandomString.make(5) + "@gmail.com");
-        registrationPage.enterPassword(RandomString.make(5));
-        registrationPage.clickRegistrationButton();
+        registrationPage.register(user.getName(), user.getEmail(), user.getPassword());
         Assert.assertTrue(registrationPage.incorrectPasswordErrorMessage.isDisplayed());
     }
-
 }
 

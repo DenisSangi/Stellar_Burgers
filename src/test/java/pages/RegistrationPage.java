@@ -9,23 +9,27 @@ public class RegistrationPage {
 
     //локатор поля ввода Имя
     @FindBy(how = How.XPATH, using = "/html/body/div/div/main/div/form/fieldset[1]/div/div/input")
-    public SelenideElement nameInputField;
+    private SelenideElement nameInputField;
 
     //локатор поля ввода Email
     @FindBy(how = How.XPATH, using = "//*[@id=\"root\"]/div/main/div/form/fieldset[2]/div/div/input")
-    public SelenideElement emailInputField;
+    private SelenideElement emailInputField;
 
     //Локатор поля ввода Пароль
     @FindBy(how = How.XPATH, using = "//input[contains(@name, 'Пароль')]")
-    public SelenideElement passwordInputField;
+    private SelenideElement passwordInputField;
 
     //Локатор кнопки Зарегистрироваться
     @FindBy(how = How.XPATH, using = "//*[text()='Зарегистрироваться']")
-    public SelenideElement registrationButton;
+    private SelenideElement registrationButton;
 
     //локатор ошибкт Некорректный пароль
     @FindBy(how = How.XPATH, using = "//*[text()='Некорректный пароль']")
     public SelenideElement incorrectPasswordErrorMessage;
+
+    //Локатор ссылки Войти
+    @FindBy(how = How.LINK_TEXT, using = "Войти")
+    private SelenideElement enterLink;
 
     //метод заполнения поля ввода Имя
     public void enterName(String name) {
@@ -45,6 +49,19 @@ public class RegistrationPage {
     //метод клика на кнопку Зарегистрироваться
     public void clickRegistrationButton() {
         registrationButton.click();
+    }
+
+    //метод клика на ссылку Войти
+    public void clickEnterLink() {
+        enterLink.click();
+    }
+
+    //метод Регистрации
+    public void register(String name, String email, String password) {
+        enterName(name);
+        enterEmail(email);
+        enterPassword(password);
+        clickRegistrationButton();
     }
 
 }

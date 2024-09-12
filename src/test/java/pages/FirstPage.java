@@ -12,13 +12,22 @@ public class FirstPage {
     public SelenideElement enterAccountButton;
 
     //локатор кнопки Оформить заказ
-    @FindBy(how = How.XPATH, using = "//*[text()='Оформить заказ']")
-    public SelenideElement makeOrder;
+    @FindBy(how = How.XPATH, using = "//*[@id=\"root\"]/div/main/section[2]/div/button")
+    public SelenideElement makeOrderButton;
+
+    //локатор кнопки Личный кабинет
+    @FindBy(how = How.XPATH, using = "//*[text()='Личный Кабинет']")
+    private SelenideElement personalCabinetButton;
 
 
     //метод клика на кнопку Войти в аккаунт
     public void clickEnterAccountButton() {
         enterAccountButton.click();
+    }
+
+    //метод клика на кнопку Личный кабинет
+    public void clickPersonalCabinetButton() {
+        personalCabinetButton.click();
     }
 }
 
