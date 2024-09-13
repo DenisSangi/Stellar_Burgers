@@ -1,4 +1,4 @@
-package com.stellarburgers.stellar_burgers.registration;
+package com.stellarburgers.stellar_burgers.tests;
 
 import io.qameta.allure.Description;
 import org.junit.jupiter.api.DisplayName;
@@ -14,11 +14,6 @@ import static com.codeborne.selenide.Condition.visible;
 
 public class LoginTest extends BaseData {
 
-//    @AfterTest
-//    public void loggingOut() {
-//        logoutFromFirstPage();
-//    }
-
     @AfterClass
     private void tearDown() {
         closeDriver();
@@ -33,7 +28,8 @@ public class LoginTest extends BaseData {
         firstPage.clickEnterAccountButton();
         loginPage.login(user.getEmail(), user.getPassword());
         Assert.assertTrue(firstPage.makeOrderButton.shouldBe(visible, Duration.ofSeconds(2)).isDisplayed());
-        logoutFromFirstPage();
+        firstPage.clickPersonalCabinetButton();
+        logoutAndRedirectToFirstPage();
 
     }
 
@@ -47,7 +43,8 @@ public class LoginTest extends BaseData {
         registrationPage.clickEnterLink();
         loginPage.login(user.getEmail(), user.getPassword());
         Assert.assertTrue(firstPage.makeOrderButton.shouldBe(visible, Duration.ofSeconds(2)).isDisplayed());
-        logoutFromFirstPage();
+        firstPage.clickPersonalCabinetButton();
+        logoutAndRedirectToFirstPage();
     }
 
     @Test(priority = 3)
@@ -60,7 +57,8 @@ public class LoginTest extends BaseData {
         restorePasswordPage.clickEnterLink();
         loginPage.login(user.getEmail(), user.getPassword());
         Assert.assertTrue(firstPage.makeOrderButton.shouldBe(visible, Duration.ofSeconds(2)).isDisplayed());
-        logoutFromFirstPage();
+        firstPage.clickPersonalCabinetButton();
+        logoutAndRedirectToFirstPage();
     }
 
     @Test(priority = 4)
@@ -71,6 +69,7 @@ public class LoginTest extends BaseData {
         firstPage.clickPersonalCabinetButton();
         loginPage.login(user.getEmail(), user.getPassword());
         Assert.assertTrue(firstPage.makeOrderButton.shouldBe(visible, Duration.ofSeconds(2)).isDisplayed());
-        logoutFromFirstPage();
+        firstPage.clickPersonalCabinetButton();
+        logoutAndRedirectToFirstPage();
     }
 }

@@ -1,4 +1,4 @@
-package com.stellarburgers.stellar_burgers.registration;
+package com.stellarburgers.stellar_burgers.tests;
 
 import io.qameta.allure.Description;
 import lombok.extern.slf4j.Slf4j;

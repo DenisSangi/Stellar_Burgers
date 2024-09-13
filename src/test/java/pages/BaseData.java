@@ -1,7 +1,6 @@
 package pages;
 
 import org.testng.Assert;
-
 import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.visible;
@@ -21,10 +20,10 @@ public abstract class BaseData {
         getWebDriver().quit();
     }
 
-    public void logoutFromFirstPage() {
-        firstPage.clickPersonalCabinetButton();
+    public void logoutAndRedirectToFirstPage() {
         accountPage.clickExitButton();
         loginPage.clickStellarBurgerLogo();
         Assert.assertTrue(firstPage.enterAccountButton.shouldBe(visible, Duration.ofSeconds(2)).isDisplayed());
     }
+
 }
