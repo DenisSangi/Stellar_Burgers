@@ -1,7 +1,5 @@
 package com.stellarburgers.stellar_burgers.tests;
 
-import io.qameta.allure.Description;
-import org.junit.jupiter.api.DisplayName;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
@@ -20,9 +18,9 @@ public class LoginTest extends BaseData {
     }
 
 
-    @Test(priority = 1)
-    @DisplayName("Login test 1")
-    @Description("Test of Login via FirstPage/enterAccountButton")
+    @Test(priority = 1, description = "Test of Login via FirstPage/enterAccountButton")
+//    @DisplayName("Login test 1")
+//    @Description("Test of Login via FirstPage/enterAccountButton")
     public void loginViaEnterIntoAccountButton() {
         User user = User.getExistedUser();
         firstPage.clickEnterAccountButton();
@@ -34,8 +32,8 @@ public class LoginTest extends BaseData {
     }
 
     @Test(priority = 2)
-    @DisplayName("Login Test 2")
-    @Description("Test of Login via FirstPage/Registration/enterLink")
+//    @DisplayName("Login Test 2")
+//    @Description("Test of Login via FirstPage/Registration/enterLink")
     public void loginViaEnterLink() {
         User user = User.getExistedUser();
         firstPage.clickEnterAccountButton();
@@ -48,8 +46,8 @@ public class LoginTest extends BaseData {
     }
 
     @Test(priority = 3)
-    @DisplayName("Login Test 3")
-    @Description("Test of Login via FirstPage/Registration/ForegotPassword/restorePasswordLink")
+//    @DisplayName("Login Test 3")
+//    @Description("Test of Login via FirstPage/Registration/ForegotPassword/restorePasswordLink")
     public void loginViaRestorePasswordPageEnterLink() {
         User user = User.getExistedUser();
         firstPage.clickEnterAccountButton();
@@ -62,8 +60,8 @@ public class LoginTest extends BaseData {
     }
 
     @Test(priority = 4)
-    @DisplayName("Login Test 4")
-    @Description("Test of Login via FirstPage/personalAccount")
+//    @DisplayName("Login Test 4")
+//    @Description("Test of Login via FirstPage/personalAccount")
     public void loginViaPersonalAccount() {
         User user = User.getExistedUser();
         firstPage.clickPersonalCabinetButton();

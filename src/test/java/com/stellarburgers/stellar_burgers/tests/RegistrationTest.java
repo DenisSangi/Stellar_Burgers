@@ -1,8 +1,6 @@
 package com.stellarburgers.stellar_burgers.tests;
 
-import io.qameta.allure.Description;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.jupiter.api.*;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
@@ -22,8 +20,8 @@ public class RegistrationTest extends BaseData {
     }
 
     @Test(priority = 1)
-    @DisplayName("Registration test 1")
-    @Description ("Test of Registration positive")
+//    @DisplayName("Registration test 1")
+//    @Description ("Test of Registration positive")
     public void registrationTest() {
         User user = User.getRandomUser();
         firstPage.clickEnterAccountButton();
@@ -33,8 +31,8 @@ public class RegistrationTest extends BaseData {
     }
 
     @Test(priority = 2)
-    @DisplayName("Registration test 2")
-    @Description("Test of Registration with to short Password")
+//    @DisplayName("Registration test 2")
+//    @Description("Test of Registration with to short Password")
     public void incorrectPasswordRegistrationTest() {
         User user = User.geShortPasswordUser();
         loginPage.clickStellarBurgerLogo();

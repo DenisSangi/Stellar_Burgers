@@ -1,8 +1,6 @@
 package com.stellarburgers.stellar_burgers.tests;
 
 import com.codeborne.selenide.WebDriverRunner;
-import io.qameta.allure.Description;
-import org.junit.jupiter.api.DisplayName;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
@@ -23,8 +21,8 @@ public class RedirectTest extends BaseData {
     }
 
     @Test(priority = 1)
-    @DisplayName("Testing redirect to PersonalCabinet")
-    @Description("Basic test of redirection into Account via FirstPage/personalCabinetButton")
+//    @DisplayName("Testing redirect to PersonalCabinet")
+//    @Description("Basic test of redirection into Account via FirstPage/personalCabinetButton")
     public void redirectToPersonalAccountFormFirstPageTest() {
 
         firstPage.clickEnterAccountButton();
@@ -35,8 +33,8 @@ public class RedirectTest extends BaseData {
     }
 
     @Test(priority = 2)
-    @DisplayName("Testing redirect to Constructor")
-    @Description("Basic test of redirection from Account Constructor")
+//    @DisplayName("Testing redirect to Constructor")
+//    @Description("Basic test of redirection from Account Constructor")
     public void redirectToConstructorFormPersonalAccountTest() {
 
         firstPage.clickEnterAccountButton();
@@ -47,8 +45,8 @@ public class RedirectTest extends BaseData {
     }
 
     @Test(priority = 3)
-    @DisplayName("Testing of switching tabs of a Constructor")
-    @Description("Switching between tabs of a Constructor Buns/Sauce/Filler")
+//    @DisplayName("Testing of switching tabs of a Constructor")
+//    @Description("Switching between tabs of a Constructor Buns/Sauce/Filler")
     public void switchingTabsOfAConstructorTest() {
 
         firstPage.clickPersonalCabinetButton();
@@ -59,8 +57,8 @@ public class RedirectTest extends BaseData {
     }
 
     @Test(priority = 4)
-    @DisplayName("Testing of logout")
-    @Description("Redirecting to Account Page and Logout")
+//    @DisplayName("Testing of logout")
+//    @Description("Redirecting to Account Page and Logout")
     public void redirectingAndLogoutTest() {
 
         firstPage.clickPersonalCabinetButton();
